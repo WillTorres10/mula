@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::namespace('\App\Http\Controllers')->group(function (){
+    Route::get('/', 'MulaController@index')->name('index');
+    Route::post('/', 'MulaController@generateUrl');
+    Route::get('/{mula}', 'MulaController@aMula')->name('mula');
 });
